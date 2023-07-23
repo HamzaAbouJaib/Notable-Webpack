@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 class Todo {
   constructor(title, description, date, priority, isComplete) {
     this.title = title;
@@ -5,7 +7,7 @@ class Todo {
     this.date = date;
     this.priority = priority;
     this.isComplete = isComplete;
-    this.id = "random id";
+    this.id = uuidv4();
   }
 }
 
