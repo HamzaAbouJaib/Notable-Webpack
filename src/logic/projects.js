@@ -1,15 +1,17 @@
 class Projects {
-  static projects = [];
+  static allProjects = [];
 
   static getProjects() {
-    return Projects.projects;
+    return Projects.allProjects;
   }
 
   static addProject(project) {
-    return Projects.projects.push(project);
+    return Projects.allProjects.push(project);
   }
 
   static removeProject(project) {
-    return Projects.projects.filter((p) => project.id !== p.id);
+    return Projects.allProjects.filter((p) => project.id !== p.id);
   }
 }
+
+export default Projects;
