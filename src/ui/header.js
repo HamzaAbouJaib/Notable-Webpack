@@ -10,9 +10,7 @@ function createHeader() {
   return header;
 }
 
-function loadHeader() {
+export function loadHeader() {
   const content = document.querySelector("#content");
   content.appendChild(createHeader());
 }
-
-export default loadHeader();
