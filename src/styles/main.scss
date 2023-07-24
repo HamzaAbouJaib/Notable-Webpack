@@ -86,3 +86,24 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 600px;
+  min-height: 300px;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+}
