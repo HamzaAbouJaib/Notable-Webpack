@@ -6,11 +6,6 @@ import { loadProjectsTab } from "./ui/projectsTab";
 
 function loadPage() {
   loadHeader();
-  Projects.addProject(new Project("test"));
-  Projects.addProject(new Project("test"));
-  Projects.addProject(new Project("test"));
-  Projects.addProject(new Project("test"));
-  Projects.addProject(new Project("test"));
   loadProjectsTab(Projects.allProjects);
 }
 
