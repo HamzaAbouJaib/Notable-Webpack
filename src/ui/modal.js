@@ -18,7 +18,7 @@ export function loadModal(modalContent) {
   content.appendChild(createModal(modalContent));
 }
 
-function removeModal() {
+export function removeModal() {
   const modal = document.querySelector(".modal-background");
   const content = document.querySelector("#content");
   if (modal) {
