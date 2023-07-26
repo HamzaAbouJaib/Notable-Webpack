@@ -178,3 +178,39 @@
     }
   }
 }
+
+.todos-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.todo {
+  border: 1px solid rgba(243, 136, 59, 0.4);
+  border-radius: 0.7rem;
+  padding: 1rem;
+  text-transform: capitalize;
+
+  div {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    font-size: 0.9rem;
+    line-height: 0.85;
+    margin-bottom: 0.2rem;
+
+    :nth-child(2) {
+      font-size: 1.2rem;
+    }
+  }
+
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+.todo:last-child {
+  font-size: 1.12rem;
+}
