@@ -6,6 +6,10 @@ class Project {
     this.todos = [];
     this.id = uuidv4();
   }
+
+  addTodo(todo) {
+    this.todos.push(todo);
+  }
 }
 
 export default Project;
