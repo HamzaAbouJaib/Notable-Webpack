@@ -1,6 +1,6 @@
 function createTodoTab(project) {
   const todoContainer = document.createElement("div");
-  todoContainer.classList.add("todo-container");
+  todoContainer.classList.add("project-container");
 
   const projectName = document.createElement("h3");
   projectName.innerText = project.name;
@@ -17,6 +17,6 @@ export function loadTodoTab(project) {
 
 export function clearTodoTab() {
   const content = document.querySelector(".tab-container");
-  const tabs = document.querySelector(".todo-container");
+  const tabs = document.querySelector(".project-container");
   if (content && tabs) content.removeChild(tabs);
 }
