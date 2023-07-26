@@ -1,5 +1,6 @@
 import Todo from "../logic/todo";
 import { loadModal, removeModal } from "./modal";
+import { createTodos } from "./todos";
 
 function createTodoTab(project) {
   const projectContainer = document.createElement("div");
@@ -20,6 +21,7 @@ function createTodoTab(project) {
   projectHeader.appendChild(addTodoButton);
 
   projectContainer.appendChild(projectHeader);
+  projectContainer.appendChild(createTodos(project.todos));
 
   return projectContainer;
 }
@@ -99,6 +101,7 @@ function createAddTodoInput(project) {
 
     project.addTodo(new Todo(title, description, date, priority));
     removeModal();
+    loadTodoTab(project);
   });
   const cancelButton = document.createElement("button");
   cancelButton.innerText = "Cancel";
