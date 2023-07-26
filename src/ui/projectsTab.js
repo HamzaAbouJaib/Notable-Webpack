@@ -17,9 +17,7 @@ function createProjectsTab(projects) {
   for (const project of projects) {
     const projectDiv = document.createElement("div");
     projectDiv.classList.add("project");
-    projectDiv.addEventListener("click", () => {
-      loadTodoTab(project);
-    });
+    projectDiv.addEventListener("click", () => loadTodoTab(project));
     const projectName = document.createElement("h4");
     projectName.innerText = project.name;
     projectDiv.appendChild(projectName);
