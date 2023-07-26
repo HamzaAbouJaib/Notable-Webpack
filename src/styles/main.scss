@@ -149,4 +149,31 @@
 .project-container {
   margin-top: 2rem;
   order: 2;
+  width: 100%;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 2rem;
+  font-size: 2rem;
+
+  h3 {
+    text-transform: capitalize;
+  }
+
+  button {
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(243, 136, 59, 0.25);
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+
+    &:hover {
+      background-color: rgba(243, 136, 59, 0.4);
+    }
+  }
 }
