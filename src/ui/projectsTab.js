@@ -1,5 +1,6 @@
 import Project from "../logic/project";
 import Projects from "../logic/projects";
+import { loadTodoTab } from "./TodoTab";
 import { loadModal, removeModal } from "./modal";
 
 function createProjectsTab(projects) {
@@ -16,6 +17,9 @@ function createProjectsTab(projects) {
   for (const project of projects) {
     const projectDiv = document.createElement("div");
     projectDiv.classList.add("project");
+    projectDiv.addEventListener("click", () => {
+      loadTodoTab(project);
+    });
     const projectName = document.createElement("h4");
     projectName.innerText = project.name;
     projectDiv.appendChild(projectName);
@@ -36,14 +40,16 @@ function createProjectsTab(projects) {
 }
 
 export function loadProjectsTab(projects) {
+  clearProjectsTab();
   const content = document.querySelector(".tab-container");
   content.appendChild(createProjectsTab(projects));
+  if (projects.length === 1) loadTodoTab(projects[0]);
 }
 
 export function clearProjectsTab() {
   const content = document.querySelector(".tab-container");
   const tabs = document.querySelector(".projects-container");
-  content.removeChild(tabs);
+  if (content && tabs) content.removeChild(tabs);
 }
 
 function createAddProjectInput() {
@@ -64,11 +70,9 @@ function createAddProjectInput() {
   addButton.innerText = "Add Project";
   addButton.addEventListener("click", (e) => {
     const name = nameInput.value;
-    console.log(name);
     const project = new Project(name);
     Projects.addProject(project);
     removeModal();
-    clearProjectsTab();
     loadProjectsTab(Projects.allProjects);
   });
   const cancelButton = document.createElement("button");
