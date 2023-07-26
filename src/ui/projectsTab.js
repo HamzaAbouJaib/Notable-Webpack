@@ -36,12 +36,12 @@ function createProjectsTab(projects) {
 }
 
 export function loadProjectsTab(projects) {
-  const content = document.querySelector("#content");
+  const content = document.querySelector(".tab-container");
   content.appendChild(createProjectsTab(projects));
 }
 
 export function clearProjectsTab() {
-  const content = document.querySelector("#content");
+  const content = document.querySelector(".tab-container");
   const tabs = document.querySelector(".projects-container");
   content.removeChild(tabs);
 }
