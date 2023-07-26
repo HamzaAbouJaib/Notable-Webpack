@@ -1,12 +1,12 @@
 function createTodoTab(project) {
-  const todoContainer = document.createElement("div");
-  todoContainer.classList.add("project-container");
+  const projectContainer = document.createElement("div");
+  projectContainer.classList.add("project-container");
 
   const projectName = document.createElement("h3");
   projectName.innerText = project.name;
-  todoContainer.appendChild(projectName);
+  projectContainer.appendChild(projectName);
 
-  return todoContainer;
+  return projectContainer;
 }
 
 export function loadTodoTab(project) {
