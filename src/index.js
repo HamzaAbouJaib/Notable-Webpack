@@ -8,7 +8,7 @@ function loadPage() {
   loadHeader();
   createTabContainer();
   loadProjectsTab(Projects.allProjects);
-  loadTodoTab();
+  Projects.allProjects.length > 0 && loadTodoTab(Projects.allProjects[0]);
 }
 
 function createTabContainer() {
