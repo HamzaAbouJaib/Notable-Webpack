@@ -2,12 +2,15 @@ function createTodoTab(project) {
   const todoContainer = document.createElement("div");
   todoContainer.classList.add("todo-container");
 
-  todoContainer.innerHTML = "<h1>Todo List</h1>";
+  const projectName = document.createElement("h3");
+  projectName.innerText = project.name;
+  todoContainer.appendChild(projectName);
 
   return todoContainer;
 }
 
 export function loadTodoTab(project) {
+  clearTodoTab();
   const content = document.querySelector(".tab-container");
   content.appendChild(createTodoTab(project));
 }
@@ -15,5 +18,5 @@ export function loadTodoTab(project) {
 export function clearTodoTab() {
   const content = document.querySelector(".tab-container");
   const tabs = document.querySelector(".todo-container");
-  content.removeChild(tabs);
+  if (content && tabs) content.removeChild(tabs);
 }
