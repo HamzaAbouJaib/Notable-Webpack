@@ -1,3 +1,4 @@
+import Todo from "../logic/todo";
 import { loadModal, removeModal } from "./modal";
 
 function createTodoTab(project) {
@@ -14,7 +15,7 @@ function createTodoTab(project) {
   const addTodoButton = document.createElement("button");
   addTodoButton.innerText = "Create a new todo";
   addTodoButton.addEventListener("click", () => {
-    loadModal(createAddTodoInput());
+    loadModal(createAddTodoInput(project));
   });
   projectHeader.appendChild(addTodoButton);
 
@@ -35,7 +36,7 @@ export function clearTodoTab() {
   if (content && tabs) content.removeChild(tabs);
 }
 
-function createAddTodoInput() {
+function createAddTodoInput(project) {
   const contentDiv = document.createElement("div");
   contentDiv.classList.add("add-todo-container");
 
@@ -91,7 +92,13 @@ function createAddTodoInput() {
   const addButton = document.createElement("button");
   addButton.innerText = "Add Todo";
   addButton.addEventListener("click", (e) => {
-    // Create a new Todo
+    const title = titleInput.value;
+    const description = descInput.value;
+    const date = dateInput.value;
+    const priority = priorityInput.value;
+
+    project.addTodo(new Todo(title, description, date, priority));
+    removeModal();
   });
   const cancelButton = document.createElement("button");
   cancelButton.innerText = "Cancel";
