@@ -2,9 +2,18 @@ function createTodoTab(project) {
   const projectContainer = document.createElement("div");
   projectContainer.classList.add("project-container");
 
+  const projectHeader = document.createElement("div");
+  projectHeader.classList.add("project-header");
+
   const projectName = document.createElement("h3");
   projectName.innerText = project.name;
-  projectContainer.appendChild(projectName);
+  projectHeader.appendChild(projectName);
+
+  const addTodoButton = document.createElement("button");
+  addTodoButton.innerText = "Create a new todo";
+  projectHeader.appendChild(addTodoButton);
+
+  projectContainer.appendChild(projectHeader);
 
   return projectContainer;
 }
