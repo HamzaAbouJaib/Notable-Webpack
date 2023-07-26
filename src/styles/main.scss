@@ -7,6 +7,11 @@
   font-family: "Poppins", sans-serif;
 }
 
+.tab-container {
+  display: flex;
+  gap: 2rem;
+}
+
 .projects-container {
   background-color: rgba(243, 136, 59, 0.2);
   width: 400px;
