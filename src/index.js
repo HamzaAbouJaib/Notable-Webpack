@@ -5,10 +5,11 @@ import { loadHeader } from "./ui/header";
 import { loadProjectsTab } from "./ui/projectsTab";
 
 function loadPage() {
+  Projects.initializeProjects();
   loadHeader();
   createTabContainer();
-  loadProjectsTab(Projects.allProjects);
-  Projects.allProjects.length > 0 && loadTodoTab(Projects.allProjects[0]);
+  loadProjectsTab(Projects.getProjects());
+  Projects.getProjects().length > 0 && loadTodoTab(Projects.getProjects()[0]);
 }
 
 function createTabContainer() {

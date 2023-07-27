@@ -71,7 +71,7 @@ function createAddProjectInput() {
     const project = new Project(name);
     Projects.addProject(project);
     removeModal();
-    loadProjectsTab(Projects.allProjects);
+    loadProjectsTab(Projects.getProjects());
   });
   const cancelButton = document.createElement("button");
   cancelButton.innerText = "Cancel";

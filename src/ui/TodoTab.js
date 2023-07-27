@@ -1,3 +1,5 @@
+import Project from "../logic/project";
+import Projects from "../logic/projects";
 import Todo from "../logic/todo";
 import { loadModal, removeModal } from "./modal";
 import { createTodos } from "./todos";
@@ -100,6 +102,7 @@ function createAddTodoInput(project) {
     const priority = priorityInput.value;
 
     project.addTodo(new Todo(title, description, date, priority));
+    Projects.updateProjects(project);
     removeModal();
     loadTodoTab(project);
   });
