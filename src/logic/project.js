@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
 
 class Project {
-  constructor(name) {
+  constructor(name, todos, id) {
     this.name = name;
-    this.todos = [];
-    this.id = uuidv4();
+    this.todos = todos || [];
+    this.id = id || uuidv4();
   }
 
   addTodo(todo) {
