@@ -1,4 +1,3 @@
-import Project from "../logic/project";
 import Projects from "../logic/projects";
 import Todo from "../logic/todo";
 import { loadModal, removeModal } from "./modal";
@@ -7,6 +6,7 @@ import { createTodos } from "./todos";
 function createTodoTab(project) {
   const projectContainer = document.createElement("div");
   projectContainer.classList.add("project-container");
+  if (!project) return projectContainer;
 
   const projectHeader = document.createElement("div");
   projectHeader.classList.add("project-header");
