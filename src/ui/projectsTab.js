@@ -20,7 +20,10 @@ function createProjectsTab(projects) {
     projectDiv.addEventListener("click", () => loadTodoTab(project));
     const projectName = document.createElement("h4");
     projectName.innerText = project.name;
+    const deleteProjectButton = document.createElement("button");
+    deleteProjectButton.innerHTML = "&#10006;";
     projectDiv.appendChild(projectName);
+    projectDiv.appendChild(deleteProjectButton);
     projectsDiv.appendChild(projectDiv);
   }
   projectsContainer.appendChild(projectsDiv);
