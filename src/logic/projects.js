@@ -9,13 +9,21 @@ class Projects {
   }
 
   static getProjects() {
-    const projects = JSON.parse(localStorage.getItem("allProjects"));
+    const projects = JSON.parse(localStorage.getItem("allProjects")) || [];
     const p2 = [];
     for (const project of projects) {
       p2.push(new Project(project.name, project.todos, project.id));
     }
     Projects.allProjects = p2;
     return Projects.allProjects;
+  }
+
+  static getProjectIndex(oldProjects, project) {
+    const projects = oldProjects || Projects.getProjects();
+    for (let i = 0; i < projects.length; i++) {
+      if (projects[i].id === project.id) return i;
+    }
+    return -1;
   }
 
   static updateProjects(project) {
@@ -27,7 +35,7 @@ class Projects {
   }
 
   static addProject(project) {
-    Projects.allProjects = Projects.getProjects().push(project);
+    Projects.allProjects = [...Projects.getProjects(), project];
     localStorage.setItem("allProjects", JSON.stringify(Projects.allProjects));
   }
 
