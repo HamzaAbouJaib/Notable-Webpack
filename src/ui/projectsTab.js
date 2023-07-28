@@ -101,9 +101,12 @@ function createDeleteProjectInput(project) {
   const addButton = document.createElement("button");
   addButton.innerText = "Delete";
   addButton.addEventListener("click", (e) => {
-    // Delete the project
+    const oldProjects = Projects.getProjects();
+    Projects.removeProject(project);
     removeModal();
     loadProjectsTab(Projects.getProjects());
+    const projectIndex = Projects.getProjectIndex(oldProjects, project);
+    loadTodoTab(projectIndex >= 0 ? oldProjects[projectIndex - 1] : null);
   });
   const cancelButton = document.createElement("button");
   cancelButton.innerText = "Cancel";
