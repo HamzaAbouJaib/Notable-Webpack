@@ -22,6 +22,9 @@ function createProjectsTab(projects) {
     projectName.innerText = project.name;
     const deleteProjectButton = document.createElement("button");
     deleteProjectButton.innerHTML = "&#10006;";
+    deleteProjectButton.addEventListener("click", () => {
+      loadModal(createDeleteProjectInput(project));
+    });
     projectDiv.appendChild(projectName);
     projectDiv.appendChild(deleteProjectButton);
     projectsDiv.appendChild(projectDiv);
@@ -85,4 +88,29 @@ function createAddProjectInput() {
   contentDiv.appendChild(buttonDiv);
 
   return contentDiv;
+}
+
+function createDeleteProjectInput(project) {
+  const deleteProjectDiv = document.createElement("div");
+  deleteProjectDiv.classList.add("delete-project-container");
+  const title = document.createElement("h4");
+  title.innerText = "Are you sure you want to delete " + project.name + "?";
+  deleteProjectDiv.appendChild(title);
+  const buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("button-container");
+  const addButton = document.createElement("button");
+  addButton.innerText = "Delete";
+  addButton.addEventListener("click", (e) => {
+    // Delete the project
+    removeModal();
+    loadProjectsTab(Projects.getProjects());
+  });
+  const cancelButton = document.createElement("button");
+  cancelButton.innerText = "Cancel";
+  cancelButton.addEventListener("click", () => removeModal());
+  buttonDiv.appendChild(addButton);
+  buttonDiv.appendChild(cancelButton);
+
+  deleteProjectDiv.appendChild(buttonDiv);
+  return deleteProjectDiv;
 }
