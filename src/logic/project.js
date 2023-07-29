@@ -17,6 +17,10 @@ class Project {
       return t;
     });
   }
+
+  deleteTodo(todo) {
+    this.todos = this.todos.filter((t) => t.id !== todo.id);
+  }
 }
 
 export default Project;
