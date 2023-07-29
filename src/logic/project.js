@@ -10,6 +10,13 @@ class Project {
   addTodo(todo) {
     this.todos.push(todo);
   }
+
+  updateTodo(todo) {
+    this.todos = this.todos.map((t) => {
+      if (t.id === todo.id) return todo;
+      return t;
+    });
+  }
 }
 
 export default Project;
