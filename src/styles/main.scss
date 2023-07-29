@@ -226,7 +226,7 @@
   padding: 1rem;
   text-transform: capitalize;
 
-  div {
+  span {
     display: flex;
     gap: 0.8rem;
     align-items: center;
@@ -251,6 +251,7 @@
 
 .todo-button-container {
   display: flex;
+  gap: 1rem;
   margin-top: 1rem;
 
   button {
@@ -267,6 +268,15 @@
     &:hover {
       color: white;
       background-color: rgba(243, 136, 59, 0.7);
+    }
+  }
+
+  :nth-child(2) {
+    border: 1px solid red;
+    color: red;
+    &:hover {
+      color: white;
+      background-color: red;
     }
   }
 }
