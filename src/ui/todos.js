@@ -13,7 +13,7 @@ export function createTodos(project) {
     const todoTitle = document.createElement("h4");
     todoTitle.innerText = todo.title;
     todoDiv.appendChild(todoTitle);
-    const datePriorityContainer = document.createElement("div");
+    const datePriorityContainer = document.createElement("span");
     const todoDate = document.createElement("p");
     todoDate.innerText = todo.date;
     datePriorityContainer.appendChild(todoDate);
@@ -37,7 +37,13 @@ export function createTodos(project) {
     editButton.addEventListener("click", () => {
       loadModal(createEditTodoInput(project, todo));
     });
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener("click", () => {
+      //Delete the todo
+    });
     buttonContainer.appendChild(editButton);
+    buttonContainer.appendChild(deleteButton);
     todoDiv.appendChild(buttonContainer);
     todosContainer.appendChild(todoDiv);
   }
