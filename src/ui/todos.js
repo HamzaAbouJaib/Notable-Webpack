@@ -40,7 +40,7 @@ export function createTodos(project) {
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
     deleteButton.addEventListener("click", () => {
-      //Delete the todo
+      loadModal(createDeleteTodoInput(project, todo));
     });
     buttonContainer.appendChild(editButton);
     buttonContainer.appendChild(deleteButton);
@@ -49,6 +49,32 @@ export function createTodos(project) {
   }
 
   return todosContainer;
+}
+
+function createDeleteTodoInput(project, todo) {
+  const deleteTodoDiv = document.createElement("div");
+  deleteTodoDiv.classList.add("delete-todo-container");
+  const title = document.createElement("h4");
+  title.innerText = "Are you sure you want to delete " + todo.title + "?";
+  deleteTodoDiv.appendChild(title);
+  const buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("button-container");
+  const addButton = document.createElement("button");
+  addButton.innerText = "Delete";
+  addButton.addEventListener("click", (e) => {
+    project.deleteTodo(todo);
+    Projects.updateProjects(project);
+    removeModal();
+    loadTodoTab(project);
+  });
+  const cancelButton = document.createElement("button");
+  cancelButton.innerText = "Cancel";
+  cancelButton.addEventListener("click", () => removeModal());
+  buttonDiv.appendChild(addButton);
+  buttonDiv.appendChild(cancelButton);
+
+  deleteTodoDiv.appendChild(buttonDiv);
+  return deleteTodoDiv;
 }
 
 function createEditTodoInput(project, todo) {
