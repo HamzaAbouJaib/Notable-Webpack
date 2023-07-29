@@ -23,7 +23,7 @@ function createTodoTab(project) {
   projectHeader.appendChild(addTodoButton);
 
   projectContainer.appendChild(projectHeader);
-  projectContainer.appendChild(createTodos(project.todos));
+  projectContainer.appendChild(createTodos(project));
 
   return projectContainer;
 }
