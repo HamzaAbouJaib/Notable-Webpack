@@ -135,7 +135,7 @@ function createEditTodoInput(project, todo) {
   const buttonDiv = document.createElement("div");
   buttonDiv.classList.add("button-container");
   const addButton = document.createElement("button");
-  addButton.innerText = "Edit Todo";
+  addButton.innerText = "Update Todo";
   addButton.addEventListener("click", (e) => {
     const title = titleInput.value;
     const description = descInput.value;
