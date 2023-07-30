@@ -42,6 +42,7 @@ module.exports = {
       title: "Notable - TodoList App",
       filename: "index.html",
       template: "src/template.html",
+      favicon: "./src/assets/logo.ico",
     }),
   ],
 };
